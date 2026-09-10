@@ -304,6 +304,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+  }
+
+  .video-frame video {
+    cursor: pointer;
   }
 
   .video-play {
@@ -628,8 +633,11 @@
         <p>That's where we step in, turning the plan in your head into direct momentum toward your next milestone and beyond.</p>
       </div>
       <div class="problem-media">
-        <div class="video-frame">
-          <video src="repo-home-video.mp4" controls playsinline preload="metadata"></video>
+        <div class="video-frame" id="video-frame">
+          <video id="home-video" src="repo-home-video.mp4" playsinline preload="metadata"></video>
+          <div class="video-placeholder" id="video-play-overlay">
+            <span class="video-play" aria-label="Play video"></span>
+          </div>
         </div>
         <a href="#contact" class="gold-link">Book a 15-minute conversation →</a>
       </div>
@@ -746,5 +754,28 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    var video = document.getElementById('home-video');
+    var overlay = document.getElementById('video-play-overlay');
+    var frame = document.getElementById('video-frame');
+    if (!video || !overlay || !frame) return;
+
+    function showOverlay() { overlay.style.display = 'flex'; }
+    function hideOverlay() { overlay.style.display = 'none'; }
+
+    frame.addEventListener('click', function () {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    video.addEventListener('play', hideOverlay);
+    video.addEventListener('pause', showOverlay);
+    video.addEventListener('ended', showOverlay);
+  })();
+</script>
 </body>
 </html>
