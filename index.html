@@ -533,6 +533,26 @@
     margin-top: 2px;
   }
 
+  .attribution-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .attribution-avatar {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Marcellus', serif;
+    font-size: 15px;
+  }
+
   /* Closing CTA */
   .closing {
     padding: 96px 0;
@@ -729,16 +749,25 @@
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-card">
-          <p class="quote">"[Placeholder quote — replace with a real client testimonial about working with Roy or the team.]"</p>
-          <p class="attribution">Client name<span>Role, company</span></p>
+          <p class="quote">"With our new positioning, we went from listing standard services to making a genuine, clear promise that connects with our local clients."</p>
+          <div class="attribution-row">
+            <span class="attribution-avatar">P</span>
+            <p class="attribution">Patrick<span>Sheridan Legal</span></p>
+          </div>
         </div>
         <div class="testimonial-card">
-          <p class="quote">"[Placeholder quote — replace with a real client testimonial about working with Roy or the team.]"</p>
-          <p class="attribution">Client name<span>Role, company</span></p>
+          <p class="quote">"Instead of talking about spreadsheets and reporting, my new positioning hits on the exact problem my clients face—financial fog—and promises the clarity they need to make big decisions confidently."</p>
+          <div class="attribution-row">
+            <span class="attribution-avatar">M</span>
+            <p class="attribution">Mark<span>CFOConsultant.com.au</span></p>
+          </div>
         </div>
         <div class="testimonial-card">
-          <p class="quote">"[Placeholder quote — replace with a real client testimonial about working with Roy or the team.]"</p>
-          <p class="attribution">Client name<span>Role, company</span></p>
+          <p class="quote">"The repositioning completely changed our messaging; we went from sounding like every other HR firm to offering a clear, actionable promise to find the root cause of underperformance and solve it."</p>
+          <div class="attribution-row">
+            <span class="attribution-avatar">D</span>
+            <p class="attribution">Dee<span>CoastHR</span></p>
+          </div>
         </div>
       </div>
     </div>
