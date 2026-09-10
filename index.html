@@ -634,7 +634,7 @@
       </div>
       <div class="problem-media">
         <div class="video-frame" id="video-frame">
-          <video id="home-video" src="repo-home-video.mp4" playsinline preload="metadata"></video>
+          <video id="home-video" src="repositioned-hero-video.mp4" playsinline preload="metadata"></video>
           <div class="video-placeholder" id="video-play-overlay">
             <span class="video-play" aria-label="Play video"></span>
           </div>
@@ -766,10 +766,16 @@
 
     frame.addEventListener('click', function () {
       if (video.paused) {
-        video.play();
+        video.play().catch(function (err) {
+          console.error('Video play failed:', err);
+        });
       } else {
         video.pause();
       }
+    });
+
+    video.addEventListener('error', function () {
+      console.error('Video error:', video.error);
     });
 
     video.addEventListener('play', hideOverlay);
