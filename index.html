@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repositioned.business — Grow with intent</title>
+<meta name="description" content="We help exceptional businesses execute their vision, strategy, and action — through mentoring, embedded growth support for professional service firms, and positioning for family-focused practices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0C2340;
+    --navy-deep: #081832;
+    --amber: #C07C15;
+    --amber-dark: #96600F;
+    --cream: #FAF8F5;
+    --white: #FFFFFF;
+    --ink: #1A1F2B;
+    --ink-soft: #4A5164;
+    --border-soft: #E4E1DA;
+    --radius: 6px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  h1, h2, h3, .wordmark {
+    font-family: 'Marcellus', serif;
+    font-weight: 400;
+    color: var(--navy);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Header */
+  header {
+    padding: 28px 0;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo svg { flex-shrink: 0; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text .name {
+    font-family: 'Marcellus', serif;
+    font-size: 21px;
+    color: var(--navy);
+  }
+
+  .logo-text .tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--amber-dark);
+    margin-top: 2px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  nav a { transition: color 0.15s ease; white-space: nowrap; }
+  nav a:hover { color: var(--navy); }
+
+  @media (max-width: 860px) {
+    nav { display: none; }
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown > .nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font: inherit;
+    color: var(--ink-soft);
+    padding: 0;
+    transition: color 0.15s ease;
+  }
+
+  .nav-dropdown > .nav-trigger:hover { color: var(--navy); }
+
+  .nav-dropdown .caret {
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    margin-top: -3px;
+    transition: transform 0.15s ease;
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 14px;
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(12, 35, 64, 0.08);
+    padding: 8px;
+    min-width: 160px;
+    display: none;
+    flex-direction: column;
+    z-index: 20;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    display: flex;
+  }
+
+  .nav-dropdown:hover .caret,
+  .nav-dropdown:focus-within .caret {
+    transform: rotate(225deg);
+    margin-top: 3px;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 9px 12px;
+    border-radius: 4px;
+    color: var(--ink);
+    font-size: 14px;
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: var(--cream);
+    color: var(--navy);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 88px;
+    text-align: center;
+  }
+
+  .hero .eyebrow {
+    font-size: 14px;
+    color: var(--amber-dark);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 4.2vw, 42px);
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto 22px;
+  }
+
+  .hero h1 span {
+    display: block;
+  }
+
+  .hero h1 span:last-child {
+    color: var(--amber-dark);
+  }
+
+  .hero .sub {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 auto 34px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: var(--amber-dark);
+  }
+
+  /* Problem section */
+  .problem {
+    background: var(--white);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 72px 0;
+  }
+
+  .problem .wrap {
+    max-width: 1080px;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  @media (max-width: 800px) {
+    .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .problem-text h2 {
+    font-size: 30px;
+    line-height: 1.35;
+    margin-bottom: 24px;
+  }
+
+  .problem-text p {
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  .problem-text p:last-child {
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  .problem-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .gold-link {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber-dark);
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 9 / 16;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .video-frame video,
+  .video-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-play::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 14px solid var(--amber);
+    margin-left: 4px;
+  }
+
+  /* About / four areas */
+  .about {
+    padding: 88px 0 64px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  @media (max-width: 800px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .about h2 {
+    font-size: 27px;
+    margin-bottom: 18px;
+  }
+
+  .about p {
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+
+  .growth-engine-heading {
+    font-size: 27px;
+    margin-bottom: 18px;
+  }
+
+  .areas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .area-row {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .area-row:first-child { padding-top: 0; }
+  .area-row:last-child { border-bottom: none; }
+
+  .area-ring {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--navy);
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Marcellus', serif;
+    font-size: 15px;
+    color: var(--white);
+  }
+
+  .area-row:last-child .area-ring {
+    border-color: var(--amber);
+    background: var(--amber);
+    color: var(--white);
+  }
+
+  .area-content h3 {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+
+  .area-content p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+  }
+
+  /* Paths */
+  .paths {
+    padding: 64px 0 96px;
+  }
+
+  .paths-head {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+
+  .paths-head h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+  }
+
+  .paths-head p {
+    color: var(--ink-soft);
+  }
+
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 860px) {
+    .path-grid { grid-template-columns: 1fr; }
+  }
+
+  .path-card {
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .path-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+  }
+
+  .path-card p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .path-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber-dark);
+  }
+
+  /* Credibility strip */
+  .credibility {
+    background: var(--navy);
+    color: var(--white);
+    padding: 56px 0;
+  }
+
+  .testimonials {
+    background: var(--navy);
+    color: var(--white);
+    padding: 64px 0;
+  }
+
+  .testimonials-head {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .testimonials-head h2 {
+    color: var(--white);
+    font-size: 24px;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  @media (max-width: 860px) {
+    .testimonial-grid { grid-template-columns: 1fr; }
+  }
+
+  .testimonial-card {
+    background: var(--navy-deep);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  .testimonial-card .quote {
+    font-family: 'Marcellus', serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .testimonial-card .attribution {
+    font-size: 14px;
+    color: var(--amber);
+  }
+
+  .testimonial-card .attribution span {
+    display: block;
+    color: #C7D0DE;
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  /* Closing CTA */
+  .closing {
+    padding: 96px 0;
+    text-align: center;
+  }
+
+  .closing h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+
+  .closing p {
+    color: var(--ink-soft);
+    max-width: 460px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border-soft);
+    padding: 32px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="#top" class="logo" aria-label="Repositioned.business home">
+      <svg width="34" height="34" viewBox="0 0 200 200" role="img" aria-hidden="true">
+        <circle cx="100" cy="100" r="20" fill="none" stroke="#0C2340" stroke-width="9"/>
+        <circle cx="100" cy="100" r="40" fill="none" stroke="#0C2340" stroke-width="9"/>
+        <circle cx="100" cy="100" r="60" fill="none" stroke="#0C2340" stroke-width="9"/>
+        <circle cx="100" cy="100" r="82" fill="none" stroke="#C07C15" stroke-width="9"/>
+      </svg>
+      <span class="logo-text">
+        <span class="name">repositioned</span>
+        <span class="tag">BUSINESS</span>
+      </span>
+    </a>
+    <nav>
+      <div class="nav-dropdown" tabindex="0">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Who we work with
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="accountants.html">Accountants</a>
+          <a href="cfo.html">CFO</a>
+          <a href="lawyers.html">Lawyers</a>
+          <a href="https://chosenbyfamilies.com">Dentists</a>
+        </div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About us</a>
+      <a href="#contact">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Remarkable growth for professional service businesses</p>
+      <h1>
+        <span>Business owners think vision.</span>
+        <span>They talk strategy.</span>
+        <span>Some take action.</span>
+      </h1>
+      <p class="sub">We help exceptional professional service businesses execute all three, eliminating bottlenecks and transitioning into high-value work that drives real, lasting growth.</p>
+      <a href="#contact" class="btn btn-primary">Book a 15-minute conversation</a>
+    </div>
+  </section>
+
+  <section class="problem">
+    <div class="wrap problem-grid">
+      <div class="problem-text">
+        <h2>The gap between strategy and execution is where growth stalls.</h2>
+        <p>Most business owners aren't short on ambition. They're short on time, clarity, and the specialised execution needed to move forward. They don't need more theory; they need someone who's actually done it.</p>
+        <p>You've built something worth building on, but your "someday" keeps slipping. The plan in your head hasn't turned into execution on paper, and the people around you are either too close to the business to see the blind spots or lack the experience to fix them.</p>
+        <p>That's where we step in, turning the plan in your head into direct momentum toward your next milestone and beyond.</p>
+      </div>
+      <div class="problem-media">
+        <div class="video-frame">
+          <video src="repo-home-video.mp4" controls playsinline preload="metadata"></video>
+        </div>
+        <a href="#contact" class="gold-link">Book a 15-minute conversation →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>A specialised team</h2>
+        <p>Led by Roy West, who has built and sold six businesses.</p>
+        <p>For over 20 years, we've mentored business owners — and for the last decade, we've worked for and embedded in professional service firms.</p>
+        <p>We work with accountants, CFOs, lawyers, and dentists who are brilliant at their craft, but aren't natural growth experts.</p>
+        <p>Through Repositioned Business, we walk alongside a select group of owners to turn their plans into reality. To do this, we focus on four connected pillars: clarifying your market positioning, amplifying your message through structured marketing, converting interested prospects into ideal clients, and making sure you deliver seamlessly on every promise made.</p>
+        <a href="about.html" class="gold-link">Meet our team →</a>
+      </div>
+      <div>
+        <h3 class="growth-engine-heading">The Growth Engine</h3>
+        <div class="areas-list">
+          <div class="area-row">
+            <span class="area-ring">P</span>
+            <div class="area-content">
+              <h3>Positioning</h3>
+              <p>How you're known in the market — and to who. Without clear positioning, everything else works harder than it should.</p>
+            </div>
+          </div>
+          <div class="area-row">
+            <span class="area-ring">M</span>
+            <div class="area-content">
+              <h3>Marketing</h3>
+              <p>Getting the right attention, from the right people, consistently — not just when you remember to.</p>
+            </div>
+          </div>
+          <div class="area-row">
+            <span class="area-ring">S</span>
+            <div class="area-content">
+              <h3>Sales</h3>
+              <p>Turning attention into clients, without relying on being a "natural" salesperson.</p>
+            </div>
+          </div>
+          <div class="area-row">
+            <span class="area-ring">D</span>
+            <div class="area-content">
+              <h3>Delivery</h3>
+              <p>Keeping the promise once the client says yes — because growth built on a delivery gap doesn't last.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paths">
+    <div class="wrap">
+      <div class="paths-head">
+        <h2>Solutions tailored to your desired outcome.</h2>
+        <p>Exceptional work drives growth. Scalable execution drives profit. We connect the two.</p>
+      </div>
+      <div class="path-grid">
+        <div class="path-card" id="mentoring">
+          <h3>Turn your plan into results.</h3>
+          <p>One-to-one mentoring for business owners who know their target outcome—and want to reach it faster, with absolute clarity. Limited to a select number of clients with real intent.</p>
+          <a href="mentoring.html" class="path-link">Learn about mentoring →</a>
+        </div>
+        <div class="path-card" id="firms">
+          <h3>End-to-End Execution, Embedded in Your Firm</h3>
+          <p>Traditional advisors give advice; agencies just generate leads. We take direct control of your positioning, marketing, and sales, then align your delivery so operations effortlessly fulfil every promise made—making it effortless for the right clients to say yes.</p>
+          <a href="firms.html" class="path-link">See how it works →</a>
+        </div>
+        <div class="path-card" id="families">
+          <h3>Become the family's first choice</h3>
+          <p>A highly successful positioning and marketing program for dental practices that want to be known as the local, family-friendly choice in their market.</p>
+          <a href="https://chosenbyfamilies.com" class="path-link">Visit Chosen by Families →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="testimonials-head">
+        <h2>What clients say</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="quote">"[Placeholder quote — replace with a real client testimonial about working with Roy or the team.]"</p>
+          <p class="attribution">Client name<span>Role, company</span></p>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">"[Placeholder quote — replace with a real client testimonial about working with Roy or the team.]"</p>
+          <p class="attribution">Client name<span>Role, company</span></p>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">"[Placeholder quote — replace with a real client testimonial about working with Roy or the team.]"</p>
+          <p class="attribution">Client name<span>Role, company</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" id="contact">
+    <div class="wrap">
+      <h2>Stop fixing symptoms. Build the engine.</h2>
+      <p>Whether you need us fully embedded in your firm or guiding your strategy from the outside, true growth starts by aligning your positioning, pipeline, and operations into a single, high-margin system. Let's discuss your firm and see which partnership level fits your practice best.</p>
+      <a href="mailto:hello@repositioned.business" class="btn btn-primary">Book a 15-minute conversation</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Repositioned.business</span>
+  </div>
+</footer>
+
+</body>
+</html>
