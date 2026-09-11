@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Positioning Review — Repositioned.business</title>
+<meta name="description" content="A 7-question review for professional service firms ready to grow beyond the owner's personal capacity. Find out where your positioning is costing you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0C2340;
+    --navy-deep: #081832;
+    --amber: #C07C15;
+    --amber-dark: #96600F;
+    --cream: #FAF8F5;
+    --white: #FFFFFF;
+    --ink: #1A1F2B;
+    --ink-soft: #4A5164;
+    --border-soft: #E4E1DA;
+    --radius: 6px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  h1, h2, h3, .wordmark {
+    font-family: 'Marcellus', serif;
+    font-weight: 400;
+    color: var(--navy);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Header */
+  header {
+    padding: 28px 0;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo svg { flex-shrink: 0; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text .name {
+    font-family: 'Marcellus', serif;
+    font-size: 21px;
+    color: var(--navy);
+  }
+
+  .logo-text .tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--amber-dark);
+    margin-top: 2px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  nav a { transition: color 0.15s ease; white-space: nowrap; }
+  nav a:hover { color: var(--navy); }
+
+  @media (max-width: 860px) {
+    nav { display: none; }
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown > .nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font: inherit;
+    color: var(--ink-soft);
+    padding: 0;
+    transition: color 0.15s ease;
+  }
+
+  .nav-dropdown > .nav-trigger:hover { color: var(--navy); }
+
+  .nav-dropdown .caret {
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    margin-top: -3px;
+    transition: transform 0.15s ease;
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 14px;
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(12, 35, 64, 0.08);
+    padding: 8px;
+    min-width: 160px;
+    display: none;
+    flex-direction: column;
+    z-index: 20;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    display: flex;
+  }
+
+  .nav-dropdown:hover .caret,
+  .nav-dropdown:focus-within .caret {
+    transform: rotate(225deg);
+    margin-top: 3px;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 9px 12px;
+    border-radius: 4px;
+    color: var(--ink);
+    font-size: 14px;
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: var(--cream);
+    color: var(--navy);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 88px;
+    text-align: center;
+  }
+
+  .hero .eyebrow {
+    font-size: 14px;
+    color: var(--amber-dark);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 4.2vw, 42px);
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto 22px;
+  }
+
+  .hero h1 span {
+    display: block;
+  }
+
+  .hero h1 span:last-child {
+    color: var(--amber-dark);
+  }
+
+  .hero .sub {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 auto 34px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--white);
+  }
+
+  .btn-primary:hover {
+    background: var(--amber-dark);
+  }
+
+  /* Problem section */
+  .problem {
+    background: var(--white);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 72px 0;
+  }
+
+  .problem .wrap {
+    max-width: 1080px;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  @media (max-width: 800px) {
+    .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .problem-text h2 {
+    font-size: 30px;
+    line-height: 1.35;
+    margin-bottom: 24px;
+  }
+
+  .problem-text p {
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  .problem-text p:last-child {
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  .problem-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .gold-link {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber-dark);
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 9 / 16;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .video-frame video,
+  .video-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-play::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 14px solid var(--amber);
+    margin-left: 4px;
+  }
+
+  /* About / four areas */
+  .about {
+    padding: 88px 0 64px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  @media (max-width: 800px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .about h2 {
+    font-size: 27px;
+    margin-bottom: 18px;
+  }
+
+  .about p {
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+
+  .growth-engine-heading {
+    font-size: 27px;
+    margin-bottom: 18px;
+  }
+
+  .areas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .area-row {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .area-row:first-child { padding-top: 0; }
+  .area-row:last-child { border-bottom: none; }
+
+  .area-ring {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--navy);
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Marcellus', serif;
+    font-size: 15px;
+    color: var(--white);
+  }
+
+  .area-row:last-child .area-ring {
+    border-color: var(--amber);
+    background: var(--amber);
+    color: var(--white);
+  }
+
+  .area-content h3 {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+
+  .area-content p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+  }
+
+  /* Paths */
+  .paths {
+    padding: 64px 0 96px;
+  }
+
+  .paths-head {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+
+  .paths-head h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+  }
+
+  .paths-head p {
+    color: var(--ink-soft);
+  }
+
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 860px) {
+    .path-grid { grid-template-columns: 1fr; }
+  }
+
+  .path-card {
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .path-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+  }
+
+  .path-card p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .path-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber-dark);
+  }
+
+  /* Credibility strip */
+  .credibility {
+    background: var(--navy);
+    color: var(--white);
+    padding: 56px 0;
+  }
+
+  .testimonials {
+    background: var(--navy);
+    color: var(--white);
+    padding: 64px 0;
+  }
+
+  .testimonials-head {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .testimonials-head h2 {
+    color: var(--white);
+    font-size: 24px;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  @media (max-width: 860px) {
+    .testimonial-grid { grid-template-columns: 1fr; }
+  }
+
+  .testimonial-card {
+    background: var(--navy-deep);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  .testimonial-card .quote {
+    font-family: 'Marcellus', serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .testimonial-card .attribution {
+    font-size: 14px;
+    color: var(--amber);
+  }
+
+  .testimonial-card .attribution span {
+    display: block;
+    color: #C7D0DE;
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  /* Closing CTA */
+  .closing {
+    padding: 96px 0;
+    text-align: center;
+  }
+
+  .closing h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+
+  .closing p {
+    color: var(--ink-soft);
+    max-width: 460px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border-soft);
+    padding: 32px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }  /* Sub-page long-form content (mentoring, etc.) */
+  .page-hero {
+    padding: 72px 0 24px;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(28px, 4.2vw, 40px);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.3;
+  }
+
+  .page-hero-sub {
+    font-style: italic;
+  }
+
+  .page-content {
+    padding: 24px 0 80px;
+  }
+
+  .page-content .wrap {
+    max-width: 700px;
+  }
+
+  .page-content p {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+
+  .page-content p.closing-line {
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 28px;
+  }
+
+  .page-cta-wrap {
+    text-align: center;
+  }
+
+  .qualify-block {
+    margin: 48px 0;
+    padding: 40px 0;
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .qualify-block h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .qualify-list {
+    margin: 32px 0;
+  }
+
+  .qualify-row {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .qualify-row:first-child { padding-top: 0; }
+  .qualify-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .qualify-num {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Marcellus', serif;
+    font-size: 15px;
+  }
+
+  .qualify-row:last-child .qualify-num {
+    background: var(--amber);
+  }
+
+  .qualify-content h4 {
+    font-family: 'Marcellus', serif;
+    font-weight: 400;
+    color: var(--navy);
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .qualify-content p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+  }
+  .review-wrap {
+    max-width: 640px;
+  }
+
+  .review-step-title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .qualify-options,
+  .review-question {
+    margin: 24px 0;
+  }
+
+  .qualify-option,
+  .review-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .qualify-option:hover,
+  .review-option:hover {
+    border-color: var(--amber);
+  }
+
+  .qualify-option input,
+  .review-option input {
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .review-q-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  #qualify-continue,
+  #quiz-continue {
+    border: none;
+    cursor: pointer;
+  }
+
+  #qualify-continue:disabled,
+  #quiz-continue:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .review-email-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .review-email-form input[type="email"] {
+    flex: 1;
+    min-width: 220px;
+    padding: 13px 16px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .review-email-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--amber);
+  }
+
+  .review-email-form button {
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .review-tier-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 8px;
+  }
+
+  .review-tier-title {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo" aria-label="Repositioned.business home">
+      <svg width="34" height="34" viewBox="0 0 200 200" role="img" aria-hidden="true">
+        <circle cx="100" cy="100" r="20" fill="none" stroke="#0C2340" stroke-width="9"/>
+        <circle cx="100" cy="100" r="40" fill="none" stroke="#0C2340" stroke-width="9"/>
+        <circle cx="100" cy="100" r="60" fill="none" stroke="#0C2340" stroke-width="9"/>
+        <circle cx="100" cy="100" r="82" fill="none" stroke="#C07C15" stroke-width="9"/>
+      </svg>
+      <span class="logo-text">
+        <span class="name">repositioned</span>
+        <span class="tag">BUSINESS</span>
+      </span>
+    </a>
+    <nav>
+      <div class="nav-dropdown" tabindex="0">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+          Who we work with
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="accountants.html">Accountants</a>
+          <a href="cfo.html">CFO</a>
+          <a href="lawyers.html">Lawyers</a>
+          <a href="https://chosenbyfamilies.com">Dentists</a>
+        </div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About us</a>
+      <a href="index.html#contact">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>The Positioning Review</h1>
+      <p class="sub page-hero-sub">7 questions. Find out whether your positioning is doing the selling for you—<br>or quietly costing you your best clients.</p>
+    </div>
+  </section>
+
+  <section class="page-content">
+    <div class="wrap review-wrap">
+
+      <!-- STEP 0: QUALIFIER -->
+      <div id="step-qualify" class="review-step">
+        <h2 class="review-step-title">First, a quick check.</h2>
+        <p>This review is built for established professional service firms—accountants, CFOs, lawyers, and similar practices—where the owner wants to leverage their time and grow the team beyond themselves. It isn't built for startups or solo operators who don't plan to grow.</p>
+        <div class="qualify-options">
+          <label class="qualify-option">
+            <input type="radio" name="qualify" value="qualified">
+            <span>We're an established firm with a team, and I want to grow beyond my own personal capacity.</span>
+          </label>
+          <label class="qualify-option">
+            <input type="radio" name="qualify" value="startup">
+            <span>We're a startup or in our first year or two.</span>
+          </label>
+          <label class="qualify-option">
+            <input type="radio" name="qualify" value="solo">
+            <span>I'm a solo operator and don't plan to grow a team.</span>
+          </label>
+        </div>
+        <button type="button" class="btn btn-primary" id="qualify-continue" disabled>Continue</button>
+      </div>
+
+      <!-- DISQUALIFIED MESSAGE -->
+      <div id="step-disqualified" class="review-step" style="display:none;">
+        <h2 class="review-step-title">This one's probably not the right fit yet.</h2>
+        <p>The Positioning Review is built for firms that already have a team and are ready to grow beyond the owner's own capacity. If that's not quite where you are today, our 1-on-1 mentoring might be a better starting point.</p>
+        <div class="page-cta-wrap" style="text-align:left;">
+          <a href="mentoring.html" class="btn btn-primary">Learn About Mentoring</a>
+        </div>
+      </div>
+
+      <!-- STEP 1: QUIZ -->
+      <div id="step-quiz" class="review-step" style="display:none;">
+        <h2 class="review-step-title">Answer honestly—there's no scoring penalty for the truth.</h2>
+
+        <div class="review-question" data-gap="clients and referrers still don't hear a single clear line about who you help and how">
+          <p class="review-q-title">1. When someone asks what you do, how do you usually answer?</p>
+          <label class="review-option"><input type="radio" name="q1" value="1"><span>"We help businesses grow."</span></label>
+          <label class="review-option"><input type="radio" name="q1" value="2"><span>"We do [industry] work."</span></label>
+          <label class="review-option"><input type="radio" name="q1" value="3"><span>"We work with [type] businesses on [a specific outcome]."</span></label>
+          <label class="review-option"><input type="radio" name="q1" value="4"><span>"We work with [a narrow ideal client] on [a named process] to achieve [a named outcome]."</span></label>
+        </div>
+
+        <div class="review-question" data-gap="you don't yet have a repeatable way new clients find you">
+          <p class="review-q-title">2. How do prospects usually find you?</p>
+          <label class="review-option"><input type="radio" name="q2" value="1"><span>Word of mouth, no consistent pattern.</span></label>
+          <label class="review-option"><input type="radio" name="q2" value="2"><span>A mix of channels, no clear focus.</span></label>
+          <label class="review-option"><input type="radio" name="q2" value="3"><span>One or two channels we actively manage.</span></label>
+          <label class="review-option"><input type="radio" name="q2" value="4"><span>A specific, repeatable referral or marketing engine.</span></label>
+        </div>
+
+        <div class="review-question" data-gap="your fees are still being negotiated rather than accepted">
+          <p class="review-q-title">3. When a prospect pushes back on your fees, what usually happens?</p>
+          <label class="review-option"><input type="radio" name="q3" value="1"><span>We discount to win the work.</span></label>
+          <label class="review-option"><input type="radio" name="q3" value="2"><span>We justify based on hours or effort.</span></label>
+          <label class="review-option"><input type="radio" name="q3" value="3"><span>We explain value, but sometimes still move on price.</span></label>
+          <label class="review-option"><input type="radio" name="q3" value="4"><span>We rarely need to defend fees—clients arrive already convinced.</span></label>
+        </div>
+
+        <div class="review-question" data-gap="the people who refer you don't know precisely who to send">
+          <p class="review-q-title">4. How would a referral partner describe your ideal client?</p>
+          <label class="review-option"><input type="radio" name="q4" value="1"><span>They wouldn't know who to send us.</span></label>
+          <label class="review-option"><input type="radio" name="q4" value="2"><span>Roughly, but not specifically.</span></label>
+          <label class="review-option"><input type="radio" name="q4" value="3"><span>In general terms.</span></label>
+          <label class="review-option"><input type="radio" name="q4" value="4"><span>Precisely.</span></label>
+        </div>
+
+        <div class="review-question" data-gap="too many of your new clients aren't the right fit">
+          <p class="review-q-title">5. What percentage of your new clients are a genuinely great fit?</p>
+          <label class="review-option"><input type="radio" name="q5" value="1"><span>Under 25%.</span></label>
+          <label class="review-option"><input type="radio" name="q5" value="2"><span>25–50%.</span></label>
+          <label class="review-option"><input type="radio" name="q5" value="3"><span>50–75%.</span></label>
+          <label class="review-option"><input type="radio" name="q5" value="4"><span>Over 75%.</span></label>
+        </div>
+
+        <div class="review-question" data-gap="your story changes depending on where someone encounters it">
+          <p class="review-q-title">6. How consistent is your messaging across your website, sales calls, and proposals?</p>
+          <label class="review-option"><input type="radio" name="q6" value="1"><span>They tell different stories.</span></label>
+          <label class="review-option"><input type="radio" name="q6" value="2"><span>Mostly consistent, some drift.</span></label>
+          <label class="review-option"><input type="radio" name="q6" value="3"><span>Consistent, with minor variation.</span></label>
+          <label class="review-option"><input type="radio" name="q6" value="4"><span>Identical everywhere.</span></label>
+        </div>
+
+        <div class="review-question" data-gap="your business still depends on clients outside your ideal profile">
+          <p class="review-q-title">7. If you turned away every client outside your ideal profile tomorrow, what would happen?</p>
+          <label class="review-option"><input type="radio" name="q7" value="1"><span>We'd struggle to survive.</span></label>
+          <label class="review-option"><input type="radio" name="q7" value="2"><span>A real hit, but we'd recover.</span></label>
+          <label class="review-option"><input type="radio" name="q7" value="3"><span>Leaner, but stable.</span></label>
+          <label class="review-option"><input type="radio" name="q7" value="4"><span>More profitable, not less.</span></label>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="quiz-continue" disabled>See My Results</button>
+      </div>
+
+      <!-- STEP 2: EMAIL GATE -->
+      <div id="step-email" class="review-step" style="display:none;">
+        <h2 class="review-step-title">Almost there—where should we send your result?</h2>
+        <p>Enter your email to see your Positioning Review result.</p>
+        <form id="email-form" class="review-email-form" action="https://app.kit.com/forms/9309298/subscriptions" method="post" target="hidden_iframe">
+          <input type="email" name="email_address" id="review-email" placeholder="you@email.com" required aria-label="Email address">
+          <button type="submit" class="btn btn-primary">Show My Result</button>
+        </form>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+      </div>
+
+      <!-- STEP 3: RESULTS -->
+      <div id="step-results" class="review-step" style="display:none;">
+        <p class="review-tier-label">Your result</p>
+        <h2 class="review-tier-title" id="result-tier-title"></h2>
+        <p id="result-tier-desc"></p>
+        <p id="result-gap"></p>
+        <p class="closing-line">The full breakdown—and what to fix first—is something we walk through together.</p>
+        <div class="page-cta-wrap">
+          <a href="index.html#contact" class="btn btn-primary">Book a 15-minute conversation</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Repositioned.business</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    // --- Step 0: Qualifier ---
+    var qualifyRadios = document.querySelectorAll('input[name="qualify"]');
+    var qualifyContinueBtn = document.getElementById('qualify-continue');
+    qualifyRadios.forEach(function (r) {
+      r.addEventListener('change', function () {
+        qualifyContinueBtn.disabled = false;
+      });
+    });
+
+    qualifyContinueBtn.addEventListener('click', function () {
+      var selected = document.querySelector('input[name="qualify"]:checked');
+      if (!selected) return;
+      document.getElementById('step-qualify').style.display = 'none';
+      if (selected.value === 'qualified') {
+        document.getElementById('step-quiz').style.display = 'block';
+      } else {
+        document.getElementById('step-disqualified').style.display = 'block';
+      }
+    });
+
+    // --- Step 1: Quiz ---
+    var questions = document.querySelectorAll('.review-question');
+    var quizContinueBtn = document.getElementById('quiz-continue');
+
+    function checkQuizComplete() {
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var name = q.querySelector('input').name;
+        if (!document.querySelector('input[name="' + name + '"]:checked')) {
+          allAnswered = false;
+        }
+      });
+      quizContinueBtn.disabled = !allAnswered;
+    }
+
+    questions.forEach(function (q) {
+      q.querySelectorAll('input').forEach(function (input) {
+        input.addEventListener('change', checkQuizComplete);
+      });
+    });
+
+    var finalScore = 0;
+    var weakestGap = '';
+
+    quizContinueBtn.addEventListener('click', function () {
+      finalScore = 0;
+      var lowestVal = 5;
+      questions.forEach(function (q) {
+        var name = q.querySelector('input').name;
+        var checked = document.querySelector('input[name="' + name + '"]:checked');
+        var val = parseInt(checked.value, 10);
+        finalScore += val;
+        if (val < lowestVal) {
+          lowestVal = val;
+          weakestGap = q.getAttribute('data-gap');
+        }
+      });
+      document.getElementById('step-quiz').style.display = 'none';
+      document.getElementById('step-email').style.display = 'block';
+    });
+
+    // --- Step 2: Email gate ---
+    document.getElementById('email-form').addEventListener('submit', function () {
+      // Let the form submit in the background (hidden iframe), and reveal results immediately.
+      setTimeout(function () {
+        document.getElementById('step-email').style.display = 'none';
+        showResults();
+      }, 300);
+    });
+
+    // --- Step 3: Results ---
+    function showResults() {
+      var tier, desc;
+      if (finalScore <= 12) {
+        tier = 'Reactive Positioning';
+        desc = "Right now, you're taking whatever comes through the door, with little filter on fit. That's costing you more than it looks like on paper—in margin, in team energy, and in the clients who never even hear about you because your message doesn't reach them.";
+      } else if (finalScore <= 18) {
+        tier = 'Developing Positioning';
+        desc = "You've got real clarity in places, but it isn't systemised yet. Referrers and prospects get a slightly different story depending on where they encounter you, and that inconsistency is quietly capping your growth.";
+      } else if (finalScore <= 24) {
+        tier = 'Strong Positioning';
+        desc = "You know your lane and mostly stick to it. Most of your new clients are a good fit, and your fees mostly hold. The next gain isn't a bigger shift—it's tightening the one place where things still slip.";
+      } else {
+        tier = 'Magnetic Positioning';
+        desc = "Your positioning is largely doing the selling for you. The clients who reach you are close to ideal, and your fees rarely need defending. At this level, the highest-leverage move is making sure delivery keeps every promise your positioning makes.";
+      }
+      document.getElementById('result-tier-title').textContent = tier;
+      document.getElementById('result-tier-desc').textContent = desc;
+      document.getElementById('result-gap').innerHTML = '<strong>Your biggest single gap right now:</strong> ' + weakestGap + '.';
+      document.getElementById('step-results').style.display = 'block';
+    }
+  })();
+</script>
+</body>
+</html>
