@@ -669,8 +669,102 @@
     padding: 64px 0 96px;
   }
 
-  .post-page-wrap {
-    max-width: 680px;
+  .post-layout {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 56px;
+    align-items: start;
+  }
+
+  @media (max-width: 800px) {
+    .post-layout { grid-template-columns: 1fr; }
+  }
+
+  .post-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 24px;
+  }
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+
+  .sidebar-newsletter-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .sidebar-newsletter-head span {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .sidebar-newsletter-name {
+    font-family: 'Marcellus', serif;
+    font-size: 15px;
+    color: var(--navy);
+  }
+
+  .sidebar-newsletter-tag {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: var(--amber-dark);
+    margin-top: 2px;
+  }
+
+  .sidebar-card-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-card-text {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  .sidebar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar-form input[type="email"] {
+    padding: 11px 14px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .sidebar-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--amber);
+  }
+
+  .sidebar-form button {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 11px 16px;
+  }
+
+  .sidebar-post-link {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber-dark);
   }
 
   .post-back {
@@ -752,16 +846,51 @@
 <main id="top">
 
   <article class="post-page">
-    <div class="wrap post-page-wrap">
-      <a href="blog.html" class="gold-link post-back">← Back to Growth Feed</a>
-      <h1 class="post-page-title">One Dog, One Bone</h1>
-      <img src="one-dog-one-bone.png" alt="A dog holding a single large bone in its mouth" class="post-hero-image">
+    <div class="wrap post-layout">
+      <div class="post-main">
+        <a href="blog.html" class="gold-link post-back">← Back to Growth Feed</a>
+        <h1 class="post-page-title">One Dog, One Bone</h1>
+        <img src="one-dog-one-bone.png" alt="A dog holding a single large bone in its mouth" class="post-hero-image">
 
-      <p>Most business owners struggle with trying to be everything to everyone. They watch inconsistent referrals, price resistance, and slow pipelines eat away at their margins, assuming it's an inevitable part of running a firm.</p>
-      <p>The standard move is to broaden your services and widen your target market to capture more opportunities. But doing that only dilutes your messaging and confuses the very people you want to attract. It's time to <a href="shut-doors-open-roofs.html">shut doors and open roofs</a>.</p>
-      <p>Here's what actually works: give the dog one bone, not five. When you shift from "we help almost anyone with X" to a single, sharply defined ideal client, everything changes. Referrers instantly know who to send you, prospects self-select before the first call, and your fees stop needing defense. Specificity isn't a limitation. It's what allows a boutique firm to out-compete other businesses ten times its size.</p>
-      <p>Do this today: Write down the one type of client you do your absolute best work for, then remove every other client type from your primary homepage headline. Execute this single lever, and your incoming inquiries will immediately match your highest-margin work.</p>
-      <p class="post-cta">Need help positioning your firm to command premium fees? <a href="index.html#contact">Book a 15-minute conversation with us.</a></p>
+        <p>Most business owners struggle with trying to be everything to everyone. They watch inconsistent referrals, price resistance, and slow pipelines eat away at their margins, assuming it's an inevitable part of running a firm.</p>
+        <p>The standard move is to broaden your services and widen your target market to capture more opportunities. But doing that only dilutes your messaging and confuses the very people you want to attract. It's time to <a href="shut-doors-open-roofs.html">shut doors and open roofs</a>.</p>
+        <p>Here's what actually works: give the dog one bone, not five. When you shift from "we help almost anyone with X" to a single, sharply defined ideal client, everything changes. Referrers instantly know who to send you, prospects self-select before the first call, and your fees stop needing defense. Specificity isn't a limitation. It's what allows a boutique firm to out-compete other businesses ten times its size.</p>
+        <p>Do this today: Write down the one type of client you do your absolute best work for, then remove every other client type from your primary homepage headline. Execute this single lever, and your incoming inquiries will immediately match your highest-margin work.</p>
+        <p class="post-cta">Need help positioning your firm to command premium fees? <a href="index.html#contact">Book a 15-minute conversation with us.</a></p>
+      </div>
+
+      <aside class="post-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-newsletter-head">
+            <svg width="26" height="26" viewBox="0 0 200 200" role="img" aria-hidden="true">
+              <circle cx="100" cy="100" r="20" fill="none" stroke="#0C2340" stroke-width="9"/>
+              <circle cx="100" cy="100" r="40" fill="none" stroke="#0C2340" stroke-width="9"/>
+              <circle cx="100" cy="100" r="60" fill="none" stroke="#0C2340" stroke-width="9"/>
+              <circle cx="100" cy="100" r="82" fill="none" stroke="#C07C15" stroke-width="9"/>
+            </svg>
+            <span>
+              <span class="sidebar-newsletter-name">growth feed</span>
+              <span class="sidebar-newsletter-tag">NEWSLETTER</span>
+            </span>
+          </div>
+          <p class="sidebar-card-text">Weekly insight on positioning, marketing, sales, and delivery.</p>
+          <form action="https://app.kit.com/forms/9309298/subscriptions" method="post" class="sidebar-form">
+            <input type="email" name="email_address" placeholder="you@email.com" required aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card-title">Work With Me</h3>
+          <p class="sidebar-card-text">End-to-end execution, embedded in your firm — positioning, marketing, sales, and delivery, working as one system.</p>
+          <a href="firms.html" class="gold-link">See how it works →</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card-title">More from Growth Feed</h3>
+          <a href="shut-doors-open-roofs.html" class="sidebar-post-link">Shut Doors, Open Roofs →</a>
+        </div>
+      </aside>
     </div>
   </article>
 

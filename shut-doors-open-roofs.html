@@ -669,8 +669,102 @@
     padding: 64px 0 96px;
   }
 
-  .post-page-wrap {
-    max-width: 680px;
+  .post-layout {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 56px;
+    align-items: start;
+  }
+
+  @media (max-width: 800px) {
+    .post-layout { grid-template-columns: 1fr; }
+  }
+
+  .post-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 24px;
+  }
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+
+  .sidebar-newsletter-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .sidebar-newsletter-head span {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .sidebar-newsletter-name {
+    font-family: 'Marcellus', serif;
+    font-size: 15px;
+    color: var(--navy);
+  }
+
+  .sidebar-newsletter-tag {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: var(--amber-dark);
+    margin-top: 2px;
+  }
+
+  .sidebar-card-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-card-text {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  .sidebar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar-form input[type="email"] {
+    padding: 11px 14px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .sidebar-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--amber);
+  }
+
+  .sidebar-form button {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 11px 16px;
+  }
+
+  .sidebar-post-link {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber-dark);
   }
 
   .post-back {
@@ -747,16 +841,51 @@
 <main id="top">
 
   <article class="post-page">
-    <div class="wrap post-page-wrap">
-      <a href="blog.html" class="gold-link post-back">← Back to Growth Feed</a>
-      <h1 class="post-page-title">Shut Doors, Open Roofs</h1>
-      <img src="shut-doors-open-roofs.png" alt="A single skylight pouring light into an empty room lined with closed doors" class="post-hero-image">
+    <div class="wrap post-layout">
+      <div class="post-main">
+        <a href="blog.html" class="gold-link post-back">← Back to Growth Feed</a>
+        <h1 class="post-page-title">Shut Doors, Open Roofs</h1>
+        <img src="shut-doors-open-roofs.png" alt="A single skylight pouring light into an empty room lined with closed doors" class="post-hero-image">
 
-      <p>Most firm owners are terrified of turning away business. They leave every door open, taking on any client with a budget, assuming that a wider funnel is the only way to safeguard revenue.</p>
-      <p>The default mindset says that closing doors on certain client types shrinks your opportunity. But keeping every door open forces you to deliver custom, generalist work. It creates operational friction, dilutes your team's focus, and caps your margins.</p>
-      <p>Here is the reality: you must shut doors to open roofs. When you intentionally close the side doors to bad-fit clients, you eliminate the artificial ceiling on your firm. Specialised focus gives you vertical headroom. It allows you to build deep expertise, create repeatable assets, and command fees that generalists can never justify. You aren't shrinking your market; you are dominating a room.</p>
-      <p>Do this today: Identify the bottom 20% of your client list that causes 80% of your operational headaches. Write down the explicit criteria that makes them a bad fit, and commit to closing the door on that profile for all future business.</p>
-      <p class="post-cta">Ready to remove the ceiling on your firm's growth? <a href="index.html#contact">Book a 15-minute conversation with us.</a></p>
+        <p>Most firm owners are terrified of turning away business. They leave every door open, taking on any client with a budget, assuming that a wider funnel is the only way to safeguard revenue.</p>
+        <p>The default mindset says that closing doors on certain client types shrinks your opportunity. But keeping every door open forces you to deliver custom, generalist work. It creates operational friction, dilutes your team's focus, and caps your margins.</p>
+        <p>Here is the reality: you must shut doors to open roofs. When you intentionally close the side doors to bad-fit clients, you eliminate the artificial ceiling on your firm. Specialised focus gives you vertical headroom. It allows you to build deep expertise, create repeatable assets, and command fees that generalists can never justify. You aren't shrinking your market; you are dominating a room.</p>
+        <p>Do this today: Identify the bottom 20% of your client list that causes 80% of your operational headaches. Write down the explicit criteria that makes them a bad fit, and commit to closing the door on that profile for all future business.</p>
+        <p class="post-cta">Ready to remove the ceiling on your firm's growth? <a href="index.html#contact">Book a 15-minute conversation with us.</a></p>
+      </div>
+
+      <aside class="post-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-newsletter-head">
+            <svg width="26" height="26" viewBox="0 0 200 200" role="img" aria-hidden="true">
+              <circle cx="100" cy="100" r="20" fill="none" stroke="#0C2340" stroke-width="9"/>
+              <circle cx="100" cy="100" r="40" fill="none" stroke="#0C2340" stroke-width="9"/>
+              <circle cx="100" cy="100" r="60" fill="none" stroke="#0C2340" stroke-width="9"/>
+              <circle cx="100" cy="100" r="82" fill="none" stroke="#C07C15" stroke-width="9"/>
+            </svg>
+            <span>
+              <span class="sidebar-newsletter-name">growth feed</span>
+              <span class="sidebar-newsletter-tag">NEWSLETTER</span>
+            </span>
+          </div>
+          <p class="sidebar-card-text">Weekly insight on positioning, marketing, sales, and delivery.</p>
+          <form action="https://app.kit.com/forms/9309298/subscriptions" method="post" class="sidebar-form">
+            <input type="email" name="email_address" placeholder="you@email.com" required aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card-title">Work With Me</h3>
+          <p class="sidebar-card-text">End-to-end execution, embedded in your firm — positioning, marketing, sales, and delivery, working as one system.</p>
+          <a href="firms.html" class="gold-link">See how it works →</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card-title">More from Growth Feed</h3>
+          <a href="one-dog-one-bone.html" class="sidebar-post-link">One Dog, One Bone →</a>
+        </div>
+      </aside>
     </div>
   </article>
 
