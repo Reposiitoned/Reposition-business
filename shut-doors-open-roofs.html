@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Repositioned.business</title>
-<meta name="description" content="Clear thinking for complex business decisions and strategies. Practical advice from 40 years in business.">
+<title>Shut Doors, Open Roofs — Repositioned.business</title>
+<meta name="description" content="You must shut doors to open roofs. Why closing off bad-fit clients removes the ceiling on your firm's growth.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
@@ -176,8 +176,7 @@
     text-align: center;
   }
 
-  .hero .eyebrow,
-  .page-hero .eyebrow {
+  .hero .eyebrow {
     font-size: 14px;
     color: var(--amber-dark);
     font-weight: 600;
@@ -666,169 +665,45 @@
     color: var(--ink-soft);
     margin-bottom: 0;
   }
-  .newsletter-block {
-    max-width: 480px;
-    margin: 40px auto 0;
-    text-align: center;
+  .post-page {
+    padding: 64px 0 96px;
   }
 
-  .newsletter-masthead {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .newsletter-masthead-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1;
-  }
-
-  .newsletter-masthead-name {
-    font-family: 'Marcellus', serif;
-    font-size: 18px;
-    color: var(--navy);
-  }
-
-  .newsletter-masthead-tag {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--amber-dark);
-    margin-top: 2px;
-  }
-
-  .newsletter-form {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .newsletter-form input[type="email"] {
-    flex: 1;
-    min-width: 220px;
-    padding: 13px 16px;
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius);
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 15px;
-    color: var(--ink);
-  }
-
-  .newsletter-form input[type="email"]:focus {
-    outline: none;
-    border-color: var(--amber);
-  }
-
-  .newsletter-form button {
-    white-space: nowrap;
-    border: none;
-    cursor: pointer;
-  }
-
-  .newsletter-proof {
-    font-size: 14px;
-    color: var(--ink-soft);
-    margin-top: 16px;
-  }
-
-  .newsletter-desc {
-    font-size: 16px;
-    color: var(--ink-soft);
-    margin-bottom: 20px;
-  }
-
-  .post-card {
-    display: block;
+  .post-page-wrap {
     max-width: 680px;
-    margin: 0 auto;
-    padding-top: 48px;
-    border-top: 1px solid var(--border-soft);
-    color: inherit;
   }
 
-  .post-card-image {
+  .post-back {
+    display: inline-block;
+    margin-bottom: 28px;
+  }
+
+  .post-page-title {
+    font-size: clamp(30px, 4.5vw, 44px);
+    margin-bottom: 28px;
+  }
+
+  .post-hero-image {
     width: 100%;
-    max-height: 320px;
-    object-fit: cover;
     border-radius: var(--radius);
-    margin-bottom: 24px;
+    margin-bottom: 36px;
     display: block;
   }
 
-  .post-card-title {
-    font-size: 26px;
-    margin-bottom: 12px;
-  }
-
-  .post-card-excerpt {
-    font-size: 16px;
+  .post-page p {
+    font-size: 18px;
     color: var(--ink-soft);
-    margin-bottom: 16px;
-  }
-
-  /* Blog hero — distinct dark editorial band, using the site's existing palette */
-  .blog-hero {
-    background-color: var(--navy);
-    background-image:
-      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 48px 48px;
-    padding: 96px 0 84px;
-    text-align: left;
-  }
-
-  .blog-hero .wrap {
-    max-width: 760px;
-  }
-
-  .blog-eyebrow {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--amber);
     margin-bottom: 22px;
   }
 
-  .blog-hero h1 {
-    font-family: 'Marcellus', serif;
-    font-size: clamp(32px, 5vw, 54px);
-    line-height: 1.25;
-    color: var(--white);
-    margin-bottom: 24px;
+  .post-page .post-cta {
+    font-weight: 600;
+    color: var(--navy);
   }
 
-  .blog-hero h1 .accent {
-    font-style: italic;
-    color: #9FADC7;
-  }
-
-  .blog-hero-sub {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 17px;
-    color: #C7D0DE;
-    max-width: 480px;
-    margin-bottom: 32px;
-  }
-
-  .btn-outline {
-    display: inline-block;
-    padding: 12px 26px;
-    border: 1.5px solid var(--amber);
-    border-radius: var(--radius);
-    color: var(--amber);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .btn-outline:hover {
-    background: rgba(192, 124, 21, 0.12);
+  .post-page .post-cta a {
+    color: var(--amber-dark);
+    text-decoration: underline;
   }
 
 </style>
@@ -871,61 +746,19 @@
 
 <main id="top">
 
-  <section class="blog-hero">
-    <div class="wrap">
-      <p class="blog-eyebrow">Practical advice from 40 years in business</p>
-      <h1>Clear thinking for complex business decisions <span class="accent">and strategies.</span></h1>
-      <p class="blog-hero-sub">Skip the fluff and theoretical playbook strategies. I share real-world essays, tactical guides, and teardowns on leadership, positioning, and enterprise sales.</p>
-      <a href="#subscribe" class="btn-outline">Think Clearer. Grow Faster.</a>
-    </div>
-  </section>
+  <article class="post-page">
+    <div class="wrap post-page-wrap">
+      <a href="blog.html" class="gold-link post-back">← Back to Growth Feed</a>
+      <h1 class="post-page-title">Shut Doors, Open Roofs</h1>
+      <img src="shut-doors-open-roofs.png" alt="A single skylight pouring light into an empty room lined with closed doors" class="post-hero-image">
 
-  <section class="page-content" id="subscribe">
-    <div class="wrap">
-      <div class="newsletter-block">
-        <div class="newsletter-masthead">
-          <svg width="30" height="30" viewBox="0 0 200 200" role="img" aria-hidden="true">
-            <circle cx="100" cy="100" r="20" fill="none" stroke="#0C2340" stroke-width="9"/>
-            <circle cx="100" cy="100" r="40" fill="none" stroke="#0C2340" stroke-width="9"/>
-            <circle cx="100" cy="100" r="60" fill="none" stroke="#0C2340" stroke-width="9"/>
-            <circle cx="100" cy="100" r="82" fill="none" stroke="#C07C15" stroke-width="9"/>
-          </svg>
-          <span class="newsletter-masthead-text">
-            <span class="newsletter-masthead-name">growth feed</span>
-            <span class="newsletter-masthead-tag">NEWSLETTER</span>
-          </span>
-        </div>
-        <p class="newsletter-desc">Weekly insight on positioning, marketing, sales, and delivery—the four levers that actually grow a business.</p>
-        <form action="https://app.kit.com/forms/9309298/subscriptions" method="post" class="newsletter-form">
-          <input type="email" name="email_address" placeholder="you@email.com" required aria-label="Email address">
-          <button type="submit" class="btn btn-primary">Subscribe to Growth Feed</button>
-        </form>
-        <p class="newsletter-proof">✓ Joined by 468 business leaders already.</p>
-        <a href="index.html#contact" class="gold-link">Work with me →</a>
-      </div>
+      <p>Most firm owners are terrified of turning away business. They leave every door open, taking on any client with a budget, assuming that a wider funnel is the only way to safeguard revenue.</p>
+      <p>The default mindset says that closing doors on certain client types shrinks your opportunity. But keeping every door open forces you to deliver custom, generalist work. It creates operational friction, dilutes your team's focus, and caps your margins.</p>
+      <p>Here is the reality: you must shut doors to open roofs. When you intentionally close the side doors to bad-fit clients, you eliminate the artificial ceiling on your firm. Specialised focus gives you vertical headroom. It allows you to build deep expertise, create repeatable assets, and command fees that generalists can never justify. You aren't shrinking your market; you are dominating a room.</p>
+      <p>Do this today: Identify the bottom 20% of your client list that causes 80% of your operational headaches. Write down the explicit criteria that makes them a bad fit, and commit to closing the door on that profile for all future business.</p>
+      <p class="post-cta">Ready to remove the ceiling on your firm's growth? <a href="index.html#contact">Book a 15-minute conversation with us.</a></p>
     </div>
-  </section>
-
-  <section class="page-content" style="padding-top:0;">
-    <div class="wrap">
-      <a href="shut-doors-open-roofs.html" class="post-card">
-        <img src="shut-doors-open-roofs.png" alt="A single skylight pouring light into an empty room lined with closed doors" class="post-card-image">
-        <div class="post-card-body">
-          <h2 class="post-card-title">Shut Doors, Open Roofs</h2>
-          <p class="post-card-excerpt">Keeping every door open caps your margins and dilutes your focus. Here's why closing doors on bad-fit clients is what removes the ceiling on your firm's growth.</p>
-          <span class="gold-link">Read the full post →</span>
-        </div>
-      </a>
-      <a href="one-dog-one-bone.html" class="post-card" style="margin-top:48px;">
-        <img src="one-dog-one-bone.png" alt="A dog holding a single large bone in its mouth" class="post-card-image">
-        <div class="post-card-body">
-          <h2 class="post-card-title">One Dog, One Bone</h2>
-          <p class="post-card-excerpt">Most business owners struggle with trying to be everything to everyone. Here's why giving the dog one bone, not five, is what lets a boutique firm out-compete one ten times its size.</p>
-          <span class="gold-link">Read the full post →</span>
-        </div>
-      </a>
-    </div>
-  </section>
+  </article>
 
 </main>
 
