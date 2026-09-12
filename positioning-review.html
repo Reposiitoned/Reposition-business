@@ -988,9 +988,37 @@
 
     var finalScore = 0;
     var weakestGap = '';
+    var resultTier = '';
+    var resultDesc = '';
+    var readableAnswers = [];
+
+    function getTier(score) {
+      if (score <= 12) {
+        return {
+          tier: 'Reactive Positioning',
+          desc: "Right now, you're taking whatever comes through the door, with little filter on fit. That's costing you more than it looks like on paper—in margin, in team energy, and in the clients who never even hear about you because your message doesn't reach them."
+        };
+      } else if (score <= 18) {
+        return {
+          tier: 'Developing Positioning',
+          desc: "You've got real clarity in places, but it isn't systemised yet. Referrers and prospects get a slightly different story depending on where they encounter you, and that inconsistency is quietly capping your growth."
+        };
+      } else if (score <= 24) {
+        return {
+          tier: 'Strong Positioning',
+          desc: "You know your lane and mostly stick to it. Most of your new clients are a good fit, and your fees mostly hold. The next gain isn't a bigger shift—it's tightening the one place where things still slip."
+        };
+      } else {
+        return {
+          tier: 'Magnetic Positioning',
+          desc: "Your positioning is largely doing the selling for you. The clients who reach you are close to ideal, and your fees rarely need defending. At this level, the highest-leverage move is making sure delivery keeps every promise your positioning makes."
+        };
+      }
+    }
 
     quizContinueBtn.addEventListener('click', function () {
       finalScore = 0;
+      readableAnswers = [];
       var lowestVal = 5;
       questions.forEach(function (q) {
         var name = q.querySelector('input').name;
@@ -1001,14 +1029,37 @@
           lowestVal = val;
           weakestGap = q.getAttribute('data-gap');
         }
+        var qTitle = q.querySelector('.review-q-title').textContent.trim();
+        var aText = checked.nextElementSibling.textContent.trim();
+        readableAnswers.push(qTitle + ' — ' + aText);
       });
+      var result = getTier(finalScore);
+      resultTier = result.tier;
+      resultDesc = result.desc;
       document.getElementById('step-quiz').style.display = 'none';
       document.getElementById('step-email').style.display = 'block';
     });
 
     // --- Step 2: Email gate ---
     document.getElementById('email-form').addEventListener('submit', function () {
-      // Let the form submit in the background (hidden iframe), and reveal results immediately.
+      var email = document.getElementById('review-email').value;
+
+      // Log the full submission (email, answers, score, tier) to Formspree so it's actually visible.
+      fetch('https://formspree.io/f/xnpqkapg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          score: finalScore,
+          tier: resultTier,
+          biggest_gap: weakestGap,
+          answers: readableAnswers.join('\n')
+        })
+      }).catch(function (err) {
+        console.error('Formspree logging failed:', err);
+      });
+
+      // Let the Kit form submit in the background (hidden iframe), and reveal results immediately.
       setTimeout(function () {
         document.getElementById('step-email').style.display = 'none';
         showResults();
@@ -1017,22 +1068,8 @@
 
     // --- Step 3: Results ---
     function showResults() {
-      var tier, desc;
-      if (finalScore <= 12) {
-        tier = 'Reactive Positioning';
-        desc = "Right now, you're taking whatever comes through the door, with little filter on fit. That's costing you more than it looks like on paper—in margin, in team energy, and in the clients who never even hear about you because your message doesn't reach them.";
-      } else if (finalScore <= 18) {
-        tier = 'Developing Positioning';
-        desc = "You've got real clarity in places, but it isn't systemised yet. Referrers and prospects get a slightly different story depending on where they encounter you, and that inconsistency is quietly capping your growth.";
-      } else if (finalScore <= 24) {
-        tier = 'Strong Positioning';
-        desc = "You know your lane and mostly stick to it. Most of your new clients are a good fit, and your fees mostly hold. The next gain isn't a bigger shift—it's tightening the one place where things still slip.";
-      } else {
-        tier = 'Magnetic Positioning';
-        desc = "Your positioning is largely doing the selling for you. The clients who reach you are close to ideal, and your fees rarely need defending. At this level, the highest-leverage move is making sure delivery keeps every promise your positioning makes.";
-      }
-      document.getElementById('result-tier-title').textContent = tier;
-      document.getElementById('result-tier-desc').textContent = desc;
+      document.getElementById('result-tier-title').textContent = resultTier;
+      document.getElementById('result-tier-desc').textContent = resultDesc;
       document.getElementById('result-gap').innerHTML = '<strong>Your biggest single gap right now:</strong> ' + weakestGap + '.';
       document.getElementById('step-results').style.display = 'block';
     }
